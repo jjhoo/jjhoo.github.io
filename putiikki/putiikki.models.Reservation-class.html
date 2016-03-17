@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="putiikki-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -37,7 +34,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        <a href="putiikki-module.html">Package&nbsp;putiikki</a> ::
+        Package&nbsp;putiikki ::
         <a href="putiikki.models-module.html">Module&nbsp;models</a> ::
         Class&nbsp;Reservation
       </span>
@@ -155,16 +152,16 @@ object --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.Reservation-class.html#stock" class="summary-name">stock</a> = <code title="Column(Integer, ForeignKey(&quot;stocks.id&quot;, onupdate= &quot;CASCADE&quot;, ondelete=\
- &quot;CASCADE&quot;), nullable= False)">Column(Integer, ForeignKey(&quot;stocks.id&quot;, onupdate= &quot;CAS<code class="variable-ellipsis">...</code></code>
+        <a href="putiikki.models.Reservation-class.html#stock_item_id" class="summary-name">stock_item_id</a> = <code title="Column(Integer, ForeignKey(&quot;stock_items.id&quot;, onupdate= &quot;CASCADE&quot;, onde\
+lete= &quot;CASCADE&quot;), nullable= False)">Column(Integer, ForeignKey(&quot;stock_items.id&quot;, o<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.Reservation-class.html#basket_item" class="summary-name">basket_item</a> = <code title="Column(Integer, ForeignKey(&quot;basket_items.id&quot;, onupdate= &quot;CASCADE&quot;, ond\
-elete= &quot;CASCADE&quot;), nullable= False)">Column(Integer, ForeignKey(&quot;basket_items.id&quot;, on<code class="variable-ellipsis">...</code></code>
+        <a href="putiikki.models.Reservation-class.html#basket_item_id" class="summary-name">basket_item_id</a> = <code title="Column(Integer, ForeignKey(&quot;basket_items.id&quot;, onupdate= &quot;CASCADE&quot;, ond\
+elete= &quot;CASCADE&quot;), nullable= False)">Column(Integer, ForeignKey(&quot;basket_items.id&quot;,<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -192,14 +189,28 @@ elete= &quot;CASCADE&quot;), nullable= False)">Column(Integer, ForeignKey(&quot;
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.Reservation-class.html#__table_args__" class="summary-name">__table_args__</a> = <code title="(CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453\
-682ef10&gt;, table=Table('reservations', MetaData(bind=None), Column('id'\
+        <a href="putiikki.models.Reservation-class.html#basket_item" class="summary-name">basket_item</a> = <code title="relationship(&quot;BasketItem&quot;, back_populates= &quot;reservation&quot;)">relationship(&quot;BasketItem&quot;, back_populates= &quot;rese<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="putiikki.models.Reservation-class.html#stock_item" class="summary-name">stock_item</a> = <code title="relationship(&quot;StockItem&quot;, back_populates= &quot;reservation&quot;)">relationship(&quot;StockItem&quot;, back_populates= &quot;reserv<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="putiikki.models.Reservation-class.html#__table_args__" class="summary-name">__table_args__</a> = <code title="(CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3\
+e6a8a10&gt;, table=Table('reservations', MetaData(bind=None), Column('id'\
 , Integer(), table=&lt;reservations&gt;, primary_key=True, nullable=False), \
-Column('stock', Integer(), ForeignKey('stocks.id'), table=&lt;reservation\
-s&gt;, nullable=False), Column('basket_item', Integer(), ForeignKey('bask\
-et_items.id'), table=&lt;reservations&gt;, nullable=False), Column('count', \
-Integer(), table=&lt;reservations&gt;, nullable=False), Column('creation', D\
-ateTime(), table=&lt;reservations&gt;, nullable=False, default=ColumnDefault\
+Column('stock_item_id', Integer(), ForeignKey('stock_items.id'), table\
+=&lt;reservations&gt;, nullable=False), Column('basket_item_id', Integer(), \
+ForeignKey('basket_items.id'), table=&lt;reservations&gt;, nullable=False), \
+Column('count', Integer(), table=&lt;reservations&gt;, nullable=False), Colu\
+mn('creation', DateTime(), table=&lt;reservations&gt;, nullable=False, defau\
 ..."><code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.Tex<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -207,7 +218,7 @@ ateTime(), table=&lt;reservations&gt;, nullable=False, default=ColumnDefault\
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7f4536836590; Reservation&gt;">&lt;Mapper at 0x7f4536836590; Reservation&gt;</code>
+        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7f4a3e6b2110; Reservation&gt;">&lt;Mapper at 0x7f4a3e6b2110; Reservation&gt;</code>
     </td>
   </tr>
 <tr>
@@ -215,13 +226,13 @@ ateTime(), table=&lt;reservations&gt;, nullable=False, default=ColumnDefault\
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="putiikki.models.Reservation-class.html#__table__" class="summary-name">__table__</a> = <code title="Table('reservations', MetaData(bind=None), Column('id', Integer(), tab\
-le=&lt;reservations&gt;, primary_key=True, nullable=False), Column('stock', \
-Integer(), ForeignKey('stocks.id'), table=&lt;reservations&gt;, nullable=Fal\
-se), Column('basket_item', Integer(), ForeignKey('basket_items.id'), t\
-able=&lt;reservations&gt;, nullable=False), Column('count', Integer(), table\
-=&lt;reservations&gt;, nullable=False), Column('creation', DateTime(), table\
-=&lt;reservations&gt;, nullable=False, default=ColumnDefault(&lt;function &lt;lamb\
-da&gt; at 0x7f453689d410&gt;)), Column('modification', DateTime(), table=&lt;re\
+le=&lt;reservations&gt;, primary_key=True, nullable=False), Column('stock_it\
+em_id', Integer(), ForeignKey('stock_items.id'), table=&lt;reservations&gt;,\
+ nullable=False), Column('basket_item_id', Integer(), ForeignKey('bask\
+et_items.id'), table=&lt;reservations&gt;, nullable=False), Column('count', \
+Integer(), table=&lt;reservations&gt;, nullable=False), Column('creation', D\
+ateTime(), table=&lt;reservations&gt;, nullable=False, default=ColumnDefault\
+(&lt;function &lt;lambda&gt; at 0x7f4a3e714500&gt;)), Column('modification', DateT\
 ...">Table('reservations', MetaData(bind=None), Column(<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -229,7 +240,7 @@ da&gt; at 0x7f453689d410&gt;)), Column('modification', DateTime(), table=&lt;re\
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.Reservation-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'putiikki.models.Reservation'&gt; at 7f4536837740\
+        <a href="putiikki.models.Reservation-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'putiikki.models.Reservation'&gt; at 7f4a3e6af740\
 &gt;">&lt;ClassManager of &lt;class 'putiikki.models.R<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -335,31 +346,31 @@ da&gt; at 0x7f453689d410&gt;)), Column('modification', DateTime(), table=&lt;re\
   </td>
 </tr>
 </table>
-<a name="stock"></a>
+<a name="stock_item_id"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">stock</h3>
+  <h3 class="epydoc">stock_item_id</h3>
   
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-Column(Integer, ForeignKey(&quot;stocks.id&quot;, onupdate= &quot;CASCADE&quot;, ondelete=<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- &quot;CASCADE&quot;), nullable= False)
+Column(Integer, ForeignKey(&quot;stock_items.id&quot;, onupdate= &quot;CASCADE&quot;, onde<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+lete= &quot;CASCADE&quot;), nullable= False)
 </pre></td></tr></table>
 </dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="basket_item"></a>
+<a name="basket_item_id"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">basket_item</h3>
+  <h3 class="epydoc">basket_item_id</h3>
   
   <dl class="fields">
   </dl>
@@ -409,6 +420,42 @@ Column(DateTime, default= datetime.datetime.utcnow, nullable= False)
   </dl>
 </td></tr></table>
 </div>
+<a name="basket_item"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">basket_item</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+relationship(&quot;BasketItem&quot;, back_populates= &quot;reservation&quot;)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="stock_item"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">stock_item</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+relationship(&quot;StockItem&quot;, back_populates= &quot;reservation&quot;)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="__table_args__"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -421,14 +468,14 @@ Column(DateTime, default= datetime.datetime.utcnow, nullable= False)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-<code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-682ef10&gt;, table=Table('reservations', MetaData(bind=None), Column('id'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e6a8a10&gt;, table=Table('reservations', MetaData(bind=None), Column('id'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 , Integer(), table=&lt;reservations&gt;, primary_key=True, nullable=False), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-Column('stock', Integer(), ForeignKey('stocks.id'), table=&lt;reservation<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-s&gt;, nullable=False), Column('basket_item', Integer(), ForeignKey('bask<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-et_items.id'), table=&lt;reservations&gt;, nullable=False), Column('count', <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-Integer(), table=&lt;reservations&gt;, nullable=False), Column('creation', D<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ateTime(), table=&lt;reservations&gt;, nullable=False, default=ColumnDefault<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+Column('stock_item_id', Integer(), ForeignKey('stock_items.id'), table<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+=&lt;reservations&gt;, nullable=False), Column('basket_item_id', Integer(), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ForeignKey('basket_items.id'), table=&lt;reservations&gt;, nullable=False), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+Column('count', Integer(), table=&lt;reservations&gt;, nullable=False), Colu<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+mn('creation', DateTime(), table=&lt;reservations&gt;, nullable=False, defau<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
@@ -448,13 +495,13 @@ ateTime(), table=&lt;reservations&gt;, nullable=False, default=ColumnDefault<spa
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 Table('reservations', MetaData(bind=None), Column('id', Integer(), tab<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-le=&lt;reservations&gt;, primary_key=True, nullable=False), Column('stock', <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-Integer(), ForeignKey('stocks.id'), table=&lt;reservations&gt;, nullable=Fal<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-se), Column('basket_item', Integer(), ForeignKey('basket_items.id'), t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-able=&lt;reservations&gt;, nullable=False), Column('count', Integer(), table<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-=&lt;reservations&gt;, nullable=False), Column('creation', DateTime(), table<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-=&lt;reservations&gt;, nullable=False, default=ColumnDefault(&lt;function &lt;lamb<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-da&gt; at 0x7f453689d410&gt;)), Column('modification', DateTime(), table=&lt;re<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+le=&lt;reservations&gt;, primary_key=True, nullable=False), Column('stock_it<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+em_id', Integer(), ForeignKey('stock_items.id'), table=&lt;reservations&gt;,<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ nullable=False), Column('basket_item_id', Integer(), ForeignKey('bask<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+et_items.id'), table=&lt;reservations&gt;, nullable=False), Column('count', <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+Integer(), table=&lt;reservations&gt;, nullable=False), Column('creation', D<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ateTime(), table=&lt;reservations&gt;, nullable=False, default=ColumnDefault<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+(&lt;function &lt;lambda&gt; at 0x7f4a3e714500&gt;)), Column('modification', DateT<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
@@ -473,7 +520,7 @@ da&gt; at 0x7f453689d410&gt;)), Column('modification', DateTime(), table=&lt;re<
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;ClassManager of &lt;class 'putiikki.models.Reservation'&gt; at 7f4536837740<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+&lt;ClassManager of &lt;class 'putiikki.models.Reservation'&gt; at 7f4a3e6af740<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 &gt;
 </pre></td></tr></table>
 </dd>
@@ -485,9 +532,6 @@ da&gt; at 0x7f453689d410&gt;)), Column('modification', DateTime(), table=&lt;re<
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="putiikki-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -507,7 +551,7 @@ da&gt; at 0x7f453689d410&gt;)), Column('modification', DateTime(), table=&lt;re<
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Mar  8 15:46:50 2016
+    Generated by Epydoc 3.0.1 on Thu Mar 17 23:20:42 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

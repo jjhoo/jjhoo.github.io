@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="putiikki-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -37,7 +34,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        <a href="putiikki-module.html">Package&nbsp;putiikki</a> ::
+        Package&nbsp;putiikki ::
         <a href="putiikki.models-module.html">Module&nbsp;models</a> ::
         Class&nbsp;Item
       </span>
@@ -176,21 +173,28 @@ object --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="categories"></a><span class="summary-name">categories</span> = <code title="relationship(&quot;ItemCategory&quot;)">relationship(&quot;ItemCategory&quot;)</code>
+        <a name="categories"></a><span class="summary-name">categories</span> = <code title="relationship('ItemCategory')">relationship('ItemCategory')</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.Item-class.html#__table_args__" class="summary-name">__table_args__</a> = <code title="(CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453\
-68c1550&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ\
+        <a href="putiikki.models.Item-class.html#stock_item" class="summary-name">stock_item</a> = <code title="relationship('StockItem', uselist= False, back_populates= 'item')">relationship('StockItem', uselist= False, back_po<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="putiikki.models.Item-class.html#__table_args__" class="summary-name">__table_args__</a> = <code title="(CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3\
+e72f6d0&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ\
 er(), table=&lt;items&gt;, primary_key=True, nullable=False), Column('code',\
  TEXT(), table=&lt;items&gt;, nullable=False), Column('description', TEXT(),\
  table=&lt;items&gt;, nullable=False), Column('long_description', TEXT(), ta\
 ble=&lt;items&gt;), schema=None)),
- CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453\
-68c15d0&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ\
+ CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3\
+e72f750&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ\
 ..."><code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.Tex<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -198,7 +202,7 @@ ble=&lt;items&gt;), schema=None)),
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7f45368c1f90; Item&gt;">&lt;Mapper at 0x7f45368c1f90; Item&gt;</code>
+        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7f4a3e749190; Item&gt;">&lt;Mapper at 0x7f4a3e749190; Item&gt;</code>
     </td>
   </tr>
 <tr>
@@ -216,7 +220,7 @@ hema=None)">Table('items', MetaData(bind=None), Column('id', I<code class="varia
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.Item-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'putiikki.models.Item'&gt; at 7f4536959be0&gt;">&lt;ClassManager of &lt;class 'putiikki.models.I<code class="variable-ellipsis">...</code></code>
+        <a href="putiikki.models.Item-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'putiikki.models.Item'&gt; at 7f4a3e74c178&gt;">&lt;ClassManager of &lt;class 'putiikki.models.I<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
   <tr>
@@ -321,6 +325,24 @@ hema=None)">Table('items', MetaData(bind=None), Column('id', I<code class="varia
   </td>
 </tr>
 </table>
+<a name="stock_item"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">stock_item</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+relationship('StockItem', uselist= False, back_populates= 'item')
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="__table_args__"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -333,14 +355,14 @@ hema=None)">Table('items', MetaData(bind=None), Column('id', I<code class="varia
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-<code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-68c1550&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e72f6d0&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 er(), table=&lt;items&gt;, primary_key=True, nullable=False), Column('code',<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
  TEXT(), table=&lt;items&gt;, nullable=False), Column('description', TEXT(),<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
  table=&lt;items&gt;, nullable=False), Column('long_description', TEXT(), ta<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 ble=&lt;items&gt;), schema=None))<code class="variable-op">,</code>
- CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-68c15d0&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e72f750&gt;, table=Table('items', MetaData(bind=None), Column('id', Integ<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
@@ -381,7 +403,7 @@ hema=None)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;ClassManager of &lt;class 'putiikki.models.Item'&gt; at 7f4536959be0&gt;
+&lt;ClassManager of &lt;class 'putiikki.models.Item'&gt; at 7f4a3e74c178&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -392,9 +414,6 @@ hema=None)
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="putiikki-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -414,7 +433,7 @@ hema=None)
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Mar  8 15:46:50 2016
+    Generated by Epydoc 3.0.1 on Thu Mar 17 23:20:42 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -14,9 +14,6 @@
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="putiikki-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -37,7 +34,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        <a href="putiikki-module.html">Package&nbsp;putiikki</a> ::
+        Package&nbsp;putiikki ::
         <a href="putiikki.models-module.html">Module&nbsp;models</a> ::
         Class&nbsp;BasketItem
       </span>
@@ -163,8 +160,8 @@ object --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.BasketItem-class.html#stock" class="summary-name">stock</a> = <code title="Column(Integer, ForeignKey(&quot;stocks.id&quot;, onupdate= &quot;CASCADE&quot;, ondelete=\
- &quot;CASCADE&quot;), nullable= False)">Column(Integer, ForeignKey(&quot;stocks.id&quot;, onupdate= &quot;CAS<code class="variable-ellipsis">...</code></code>
+        <a href="putiikki.models.BasketItem-class.html#stock_item_id" class="summary-name">stock_item_id</a> = <code title="Column(Integer, ForeignKey(&quot;stock_items.id&quot;, onupdate= &quot;CASCADE&quot;, onde\
+lete= &quot;CASCADE&quot;), nullable= False)">Column(Integer, ForeignKey(&quot;stock_items.id&quot;, o<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -199,14 +196,28 @@ object --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.BasketItem-class.html#__table_args__" class="summary-name">__table_args__</a> = <code title="(CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453\
-68a38d0&gt;, table=Table('basket_items', MetaData(bind=None), Column('id'\
+        <a href="putiikki.models.BasketItem-class.html#reservation" class="summary-name">reservation</a> = <code title="relationship(&quot;Reservation&quot;, back_populates= &quot;basket_item&quot;)">relationship(&quot;Reservation&quot;, back_populates= &quot;bas<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="putiikki.models.BasketItem-class.html#stock_item" class="summary-name">stock_item</a> = <code title="relationship(&quot;StockItem&quot;, back_populates= &quot;basket_item&quot;)">relationship(&quot;StockItem&quot;, back_populates= &quot;basket<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="putiikki.models.BasketItem-class.html#__table_args__" class="summary-name">__table_args__</a> = <code title="(CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3\
+e69c150&gt;, table=Table('basket_items', MetaData(bind=None), Column('id'\
 , Integer(), table=&lt;basket_items&gt;, primary_key=True, nullable=False), \
 Column('basket_id', Integer(), ForeignKey('basket.id'), table=&lt;basket_\
-items&gt;, nullable=False), Column('stock', Integer(), ForeignKey('stocks\
-.id'), table=&lt;basket_items&gt;, nullable=False), Column('count', Integer(\
-), table=&lt;basket_items&gt;, nullable=False), Column('creation', DateTime(\
-), table=&lt;basket_items&gt;, nullable=False, default=ColumnDefault(&lt;functi\
+items&gt;, nullable=False), Column('stock_item_id', Integer(), ForeignKey\
+('stock_items.id'), table=&lt;basket_items&gt;, nullable=False), Column('cou\
+nt', Integer(), table=&lt;basket_items&gt;, nullable=False), Column('creatio\
+n', DateTime(), table=&lt;basket_items&gt;, nullable=False, default=ColumnDe\
 ..."><code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.Tex<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -214,7 +225,7 @@ items&gt;, nullable=False), Column('stock', Integer(), ForeignKey('stocks\
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7f45368a3f50; BasketItem&gt;">&lt;Mapper at 0x7f45368a3f50; BasketItem&gt;</code>
+        <a name="__mapper__"></a><span class="summary-name">__mapper__</span> = <code title="&lt;Mapper at 0x7f4a3e69c850; BasketItem&gt;">&lt;Mapper at 0x7f4a3e69c850; BasketItem&gt;</code>
     </td>
   </tr>
 <tr>
@@ -224,11 +235,11 @@ items&gt;, nullable=False), Column('stock', Integer(), ForeignKey('stocks\
         <a href="putiikki.models.BasketItem-class.html#__table__" class="summary-name">__table__</a> = <code title="Table('basket_items', MetaData(bind=None), Column('id', Integer(), tab\
 le=&lt;basket_items&gt;, primary_key=True, nullable=False), Column('basket_i\
 d', Integer(), ForeignKey('basket.id'), table=&lt;basket_items&gt;, nullable\
-=False), Column('stock', Integer(), ForeignKey('stocks.id'), table=&lt;ba\
-sket_items&gt;, nullable=False), Column('count', Integer(), table=&lt;basket\
-_items&gt;, nullable=False), Column('creation', DateTime(), table=&lt;basket\
-_items&gt;, nullable=False, default=ColumnDefault(&lt;function &lt;lambda&gt; at 0\
-x7f45368d9c08&gt;)), Column('modification', DateTime(), table=&lt;basket_ite\
+=False), Column('stock_item_id', Integer(), ForeignKey('stock_items.id\
+'), table=&lt;basket_items&gt;, nullable=False), Column('count', Integer(), \
+table=&lt;basket_items&gt;, nullable=False), Column('creation', DateTime(), \
+table=&lt;basket_items&gt;, nullable=False, default=ColumnDefault(&lt;function \
+&lt;lambda&gt; at 0x7f4a3e74b320&gt;)), Column('modification', DateTime(), tabl\
 ...">Table('basket_items', MetaData(bind=None), Column(<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -236,7 +247,7 @@ x7f45368d9c08&gt;)), Column('modification', DateTime(), table=&lt;basket_ite\
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="putiikki.models.BasketItem-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'putiikki.models.BasketItem'&gt; at 7f4536828990&gt;">&lt;ClassManager of &lt;class 'putiikki.models.B<code class="variable-ellipsis">...</code></code>
+        <a href="putiikki.models.BasketItem-class.html#_sa_class_manager" class="summary-name" onclick="show_private();">_sa_class_manager</a> = <code title="&lt;ClassManager of &lt;class 'putiikki.models.BasketItem'&gt; at 7f4a3e6a1740&gt;">&lt;ClassManager of &lt;class 'putiikki.models.B<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
   <tr>
@@ -360,20 +371,20 @@ Column(Integer, ForeignKey(&quot;basket.id&quot;, onupdate= &quot;CASCADE&quot;,
   </dl>
 </td></tr></table>
 </div>
-<a name="stock"></a>
+<a name="stock_item_id"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">stock</h3>
+  <h3 class="epydoc">stock_item_id</h3>
   
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-Column(Integer, ForeignKey(&quot;stocks.id&quot;, onupdate= &quot;CASCADE&quot;, ondelete=<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- &quot;CASCADE&quot;), nullable= False)
+Column(Integer, ForeignKey(&quot;stock_items.id&quot;, onupdate= &quot;CASCADE&quot;, onde<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+lete= &quot;CASCADE&quot;), nullable= False)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -415,6 +426,42 @@ Column(DateTime, default= datetime.datetime.utcnow, nullable= False)
   </dl>
 </td></tr></table>
 </div>
+<a name="reservation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">reservation</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+relationship(&quot;Reservation&quot;, back_populates= &quot;basket_item&quot;)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="stock_item"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">stock_item</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+relationship(&quot;StockItem&quot;, back_populates= &quot;basket_item&quot;)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="__table_args__"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -427,14 +474,14 @@ Column(DateTime, default= datetime.datetime.utcnow, nullable= False)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-<code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f453<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-68a38d0&gt;, table=Table('basket_items', MetaData(bind=None), Column('id'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-group">(</code>CheckConstraint(&lt;sqlalchemy.sql.elements.TextClause object at 0x7f4a3<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e69c150&gt;, table=Table('basket_items', MetaData(bind=None), Column('id'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 , Integer(), table=&lt;basket_items&gt;, primary_key=True, nullable=False), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 Column('basket_id', Integer(), ForeignKey('basket.id'), table=&lt;basket_<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-items&gt;, nullable=False), Column('stock', Integer(), ForeignKey('stocks<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-.id'), table=&lt;basket_items&gt;, nullable=False), Column('count', Integer(<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-), table=&lt;basket_items&gt;, nullable=False), Column('creation', DateTime(<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-), table=&lt;basket_items&gt;, nullable=False, default=ColumnDefault(&lt;functi<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+items&gt;, nullable=False), Column('stock_item_id', Integer(), ForeignKey<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+('stock_items.id'), table=&lt;basket_items&gt;, nullable=False), Column('cou<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+nt', Integer(), table=&lt;basket_items&gt;, nullable=False), Column('creatio<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+n', DateTime(), table=&lt;basket_items&gt;, nullable=False, default=ColumnDe<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
@@ -456,11 +503,11 @@ items&gt;, nullable=False), Column('stock', Integer(), ForeignKey('stocks<span c
 Table('basket_items', MetaData(bind=None), Column('id', Integer(), tab<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 le=&lt;basket_items&gt;, primary_key=True, nullable=False), Column('basket_i<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 d', Integer(), ForeignKey('basket.id'), table=&lt;basket_items&gt;, nullable<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-=False), Column('stock', Integer(), ForeignKey('stocks.id'), table=&lt;ba<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-sket_items&gt;, nullable=False), Column('count', Integer(), table=&lt;basket<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-_items&gt;, nullable=False), Column('creation', DateTime(), table=&lt;basket<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-_items&gt;, nullable=False, default=ColumnDefault(&lt;function &lt;lambda&gt; at 0<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-x7f45368d9c08&gt;)), Column('modification', DateTime(), table=&lt;basket_ite<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+=False), Column('stock_item_id', Integer(), ForeignKey('stock_items.id<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+'), table=&lt;basket_items&gt;, nullable=False), Column('count', Integer(), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+table=&lt;basket_items&gt;, nullable=False), Column('creation', DateTime(), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+table=&lt;basket_items&gt;, nullable=False, default=ColumnDefault(&lt;function <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+&lt;lambda&gt; at 0x7f4a3e74b320&gt;)), Column('modification', DateTime(), tabl<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
@@ -479,7 +526,7 @@ x7f45368d9c08&gt;)), Column('modification', DateTime(), table=&lt;basket_ite<spa
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-&lt;ClassManager of &lt;class 'putiikki.models.BasketItem'&gt; at 7f4536828990&gt;
+&lt;ClassManager of &lt;class 'putiikki.models.BasketItem'&gt; at 7f4a3e6a1740&gt;
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -490,9 +537,6 @@ x7f45368d9c08&gt;)), Column('modification', DateTime(), table=&lt;basket_ite<spa
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
   <tr valign="middle">
-  <!-- Home link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="putiikki-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
 
   <!-- Tree link -->
       <th>&nbsp;&nbsp;&nbsp;<a
@@ -512,7 +556,7 @@ x7f45368d9c08&gt;)), Column('modification', DateTime(), table=&lt;basket_ite<spa
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Mar  8 15:46:50 2016
+    Generated by Epydoc 3.0.1 on Thu Mar 17 23:20:42 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
